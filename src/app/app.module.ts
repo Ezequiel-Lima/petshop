@@ -1,3 +1,4 @@
+import { NgxLoadingModule } from 'ngx-loading';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -14,7 +15,7 @@ import { CartPageComponent } from './pages/store/cart-page/cart-page.component';
 import { FramePageComponent } from './pages/master/frame-page/frame-page.component';
 import { ProductCardComponent } from './components/store/product-card/product-card.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { LoadingComponent } from './components/shared/loading/loading.component';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -27,14 +28,15 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     ProductsPageComponent,
     CartPageComponent,
     FramePageComponent,
-    ProductCardComponent,
-    LoadingComponent
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxMaskModule.forRoot(),
+    NgxLoadingModule.forRoot({ fullScreenBackdrop: true })
   ],
   providers: [],
   bootstrap: [AppComponent]
