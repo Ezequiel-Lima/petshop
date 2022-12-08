@@ -61,6 +61,7 @@ export class SignupPageComponent implements OnInit {
       },
         (err: any) => {
           console.log(err);
+          this.toastr.error('Falha na Requisição');
           this.loading = false;
         }
       );

@@ -20,6 +20,7 @@ import { FramePageComponent } from './pages/master/frame-page/frame-page.compone
 import { ProductCardComponent } from './components/store/product-card/product-card.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
+import { ProfilePageComponent } from './pages/account/profile-page/profile-page.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { NgxMaskModule } from 'ngx-mask';
     ProductsPageComponent,
     CartPageComponent,
     FramePageComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    ProfilePageComponent
   ],
   imports: [
     BrowserModule,

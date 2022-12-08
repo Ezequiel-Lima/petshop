@@ -1,3 +1,4 @@
+import { ProfilePageComponent } from './pages/account/profile-page/profile-page.component';
 import { AuthService } from './services/auth.service';
 import { LoginPageComponent } from './pages/account/login-page/login-page.component';
 import { NgModule } from '@angular/core';
@@ -22,6 +23,7 @@ const routes: Routes = [
     path: 'account',
     component: FramePageComponent,
     children: [
+      { path: '', component: ProfilePageComponent, canActivate: [AuthService] },
       { path: 'pets', component: PetsPageComponent, canActivate: [AuthService] },
     ]
   },
