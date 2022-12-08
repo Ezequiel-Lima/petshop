@@ -1,8 +1,12 @@
+import { AuthService } from './services/auth.service';
+import { DataService } from './services/data.service';
 import { NgxLoadingModule } from 'ngx-loading';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
@@ -32,13 +36,15 @@ import { NgxMaskModule } from 'ngx-mask';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
     AppRoutingModule,
     NgxMaskModule.forRoot(),
-    NgxLoadingModule.forRoot({ fullScreenBackdrop: true })
+    NgxLoadingModule.forRoot({ fullScreenBackdrop: true }),
+    ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [DataService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
