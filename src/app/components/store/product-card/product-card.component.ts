@@ -1,3 +1,5 @@
+import { ToastrService } from 'ngx-toastr';
+import { CartUtil } from './../../../utils/cart.util';
 import { Product } from './../../../models/product.mode';
 import { Component, Input, OnInit } from '@angular/core';
 
@@ -8,9 +10,20 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ProductCardComponent implements OnInit {
   @Input() product!: Product;
 
-  constructor() { }
+  constructor(private toastr: ToastrService) { }
 
   ngOnInit(): void {
+  }
+
+  addToCart() {
+    CartUtil.add(
+      this.product._id,
+      this.product.title,
+      1,
+      this.product.price,
+      this.product.images
+    )
+    this.toastr.success(`${this.product.title} adicionado ao carrinho`, 'Produto Adicionado');
   }
 
 }
